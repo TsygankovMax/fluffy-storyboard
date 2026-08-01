@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluffy Drop - раскадровка экранов</title>
+<style>
+  :root {
+    --bg: #14112e; --panel: #1e1a44; --line: #322c66;
+    --ink: #e9e7ff; --dim: #a49ed6; --anim: #ffcf4a; --static: #6fd3ff; --gap: #ff7d7d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 32px 24px 90px;
+    background: radial-gradient(120% 70% at 50% 0%, #241d52 0%, var(--bg) 60%);
+    color: var(--ink); font: 16px/1.55 system-ui, "Segoe UI", sans-serif;
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; }
+  h1 { font-size: 30px; margin: 0 0 8px; }
+  h2 { font-size: 21px; margin: 46px 0 6px; }
+  h3 { font-size: 16px; margin: 26px 0 10px; color: var(--dim); font-weight: 600;
+       text-transform: uppercase; letter-spacing: .7px; }
+  .lede, .note { color: var(--dim); font-size: 15px; margin: 0 0 16px; }
+  code { background: #00000055; padding: 1px 6px; border-radius: 5px; font-size: 13px; }
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+          padding: 13px; display: flex; flex-direction: column; }
+  .card img { width: 100%; height: auto; display: block; border-radius: 9px; background: #0d0a22; }
+  .head { display: flex; align-items: center; gap: 9px; margin: 0 0 10px; flex-wrap: wrap; }
+  .badge { font-size: 11px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase;
+           padding: 3px 8px; border-radius: 999px; color: #14112e; white-space: nowrap; }
+  .badge.a { background: var(--anim); }
+  .badge.s { background: var(--static); }
+  .badge.g { background: var(--gap); }
+  .badge.p { background: #74e08c; }
+  .badge.q { background: #ffa03d; }
+  .wide { grid-column: 1 / -1; }
+  .wide img { border: 1px solid var(--line); }
+  .name { font-weight: 700; font-size: 15px; }
+  .card p { margin: 10px 0 0; font-size: 13.5px; color: var(--dim); }
+  .card p b { color: var(--ink); font-weight: 600; }
+  .pair { grid-column: span 2; }
+  .pair .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cap { font-size: 12px; color: var(--dim); margin-top: 6px; text-align: center; }
+  .boards { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .boards figure { margin: 0; }
+  .boards img { width: 100%; border-radius: 7px; display: block; border: 1px solid var(--line); }
+  .boards figcaption { font-size: 12px; color: var(--dim); text-align: center; padding-top: 4px; }
+  ul { color: var(--dim); font-size: 14.5px; }
+  a { color: #8fd0ff; }
+  pre { background: #0e0b24; border: 1px solid var(--line); border-radius: 10px;
+        padding: 12px 14px; overflow-x: auto; font-size: 12.5px; color: #cfd2ff; }
+  footer { color: var(--dim); font-size: 13.5px; margin-top: 50px; }
+  @media (max-width: 760px) { .pair { grid-column: span 1; } .pair .two { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Fluffy Drop - раскадровка экранов</h1>
+<p class="lede">
+  Всё, что игра показывает, снято с работающего билда 2026-07-31. Где экран
+  двигается - здесь он двигается: гифка снята с настоящего холста в реальном
+  темпе, а не нарисована. Где стоит - показан кадром. Разбор тактов - в
+  <code>docs/storyboard-screens.md</code>.
+</p>
+
+<h2>Путь игрока</h2>
+<p class="note">По порядку, как их видит игрок.</p>
+
+<h3>Вход в уровень</h3>
+<div class="grid">
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Загрузка и появление доски</span></div>
+    <img src="loading.gif" alt="экран загрузки">
+    <p><b>3 с.</b> Пустая комната - это и есть экран загрузки: тот же фон, что под
+    доской, просто уровень ещё не нарисован. Потом доска въезжает.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Пре-ролл рекламы</span></div>
+    <img src="ad-preroll.gif" alt="пре-ролл межуровневой рекламы">
+    <p><b>3 с.</b> Межуровневый интер. Доска под скримом замирает, спиннер,
+    «Видео загружается». Показывается не чаще раза в минуту - как в оригинале.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Уровень 1 - подсказка</span></div>
+    <img src="tutorial-l1.gif" alt="туториал первого уровня">
+    <p><b>Цикл 2.2 с.</b> Палец опускается на лунку, на нажатии сжимается до 90%,
+    возвращается к 100% - и маска в этот момент вырастает на 110%. Дальше палец
+    ведёт маску вниз на буквы и пропадает. Вверх не поднимается.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Уровень 7 - подсказка про лифт</span></div>
+    <img src="tutorial-l7.gif" alt="туториал лифта">
+    <p><b>Цикл 2.2 с.</b> Та же петля, но лунка едет к устью шахты. Пузыря нет:
+    словами это уже сказал попап «Отлично».</p>
+  </div>
+
+</div>
+
+<h3>Как играется</h3>
+<div class="grid">
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Уровень 1 целиком</span></div>
+    <img src="play-l1.gif" alt="прохождение первого уровня">
+    <p><b>6 с, игра по пути солвера.</b> Заглатывание букв, закрытие лунки
+    кольцом, победная кричалка словом <b>МЫ</b> - и <b>тихая передача</b>: на
+    первых трёх уровнях экрана победы нет, доска просто уезжает в следующий, а
+    монеты капают счётчиком <code>+10</code>.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Уровень 7 - лифт в работе</span></div>
+    <img src="play-l7.gif" alt="работа лифта">
+    <p><b>6 с.</b> Лунка встаёт на устье, лифт отдаёт буквы по одной, счётчик на
+    шахте убывает, и опустевшая шахта закрывает створки.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Уровень 15 - стрелочная лунка</span></div>
+    <img src="play-l15.gif" alt="стрелочная лунка">
+    <p><b>6 с.</b> Лунка со стрелкой ходит только по своей оси и даже не
+    отклоняется с неё.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Уровень 30 - слоёная лунка</span></div>
+    <img src="play-l30.gif" alt="слоёная лунка">
+    <p><b>6 с.</b> Внутренний слой закрывается, снимается со своим звуком и
+    искрой, наружу выходит следующий цвет - и только последний слой закрывает
+    лунку.</p>
+  </div>
+
+</div>
+
+<h3>Бустеры</h3>
+<p class="note">
+  Снаряжённое состояние стоит на месте - это кадр. Работа бустера идёт две
+  секунды - это гифка.
+</p>
+<div class="grid">
+
+  <div class="card">
+    <div class="head"><span class="badge s">статика</span><span class="name">Магнит снаряжён</span></div>
+    <img src="armed-magnet.png" alt="магнит снаряжён">
+    <p>Шапка уступает место баннеру, буквы гаснут, у каждой открытой лунки белое
+    кольцо, полка притушена, светится только сам слот.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Магнит в деле</span></div>
+    <img src="booster-magnet.gif" alt="работа магнита">
+    <p><b>5 с.</b> Тап по лунке - и буквы летят в неё по одной, ближние первыми,
+    каждая в свою клетку. Лунка держит счётчик и схлопывается только когда сядет
+    последняя.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge s">статика</span><span class="name">Клешня снаряжена</span></div>
+    <img src="armed-claw.png" alt="клешня снаряжена">
+    <p>Здесь наоборот: гаснут лунки, а буквы остаются светлыми - включая
+    переднюю в шахте, до неё клешня тоже дотягивается.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Клешня в деле</span></div>
+    <img src="booster-claw.gif" alt="работа клешни">
+    <p><b>4 с.</b> Тап по букве - она уходит в ближайшую открытую лунку своего
+    цвета.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge s">статика</span><span class="name">Сжиматель снаряжён</span></div>
+    <img src="armed-shrink.png" alt="сжиматель снаряжён">
+    <p>Кольца только на лунках от двух клеток: лунка 1x1 не цель. Стрелочные
+    лунки он не берёт вовсе - сжатая стрелка запирает уровень.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Сжиматель в деле</span></div>
+    <img src="booster-shrink.gif" alt="работа сжимателя">
+    <p><b>4 с.</b> Лунка схлопывается в ту клетку, по которой ткнули; ёмкость не
+    меняется.</p>
+  </div>
+
+</div>
+
+<h3>Конец уровня</h3>
+<div class="grid">
+
+  <div class="card pair">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Экран победы - наш и оригинал</span></div>
+    <div class="two">
+      <div><img src="complete-ours.gif" alt="наш экран победы"><div class="cap">наш билд, 7 с</div></div>
+      <div><img src="complete-original.gif" alt="оригинальный экран победы"><div class="cap">оригинал, запись 18-38-15 от t=397.45</div></div>
+    </div>
+    <p><b>Такты почти совпадают:</b> 0.25 логотип по буквам, 0.5 первый залп,
+    1.75 пара уходит вниз, 2.75 награды и обе шкалы, 4.25 и 4.5 шкалы
+    заполняются, кнопка - 5.25 у них и 6.25 у нас, потому что между ними стоит
+    наше слово уровня. Два честных отличия видны прямо здесь: у нас фейерверки
+    крупнее и плотнее, и у них в строке наград <b>две</b> вещи - монета и сова
+    (валюта Hoot Cup, который отложен).</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Новый предмет</span></div>
+    <img src="complete-newitem.gif" alt="экран нового предмета">
+    <p><b>5 с.</b> Приходит поверх экрана победы, когда шкала коллекции
+    заполнилась: предмет на золотом солнце, «Сыграй дальше и попробуй!» и кнопка
+    сразу на тот уровень, который его показывает. Бывает после 6-го, 14-го и
+    29-го.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">Сундук</span></div>
+    <img src="complete-chest.gif" alt="экран сундука">
+    <p><b>3 с.</b> Вылетает снизу и раскрывается, когда шкала сундука дошла до
+    3/3 - то есть раз в три уровня. Это и есть «сундучки иногда вылетают»:
+    «иногда» здесь значит «каждый третий раз».</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">кадр анимации</span><span class="name">Слово уровня</span></div>
+    <img src="complete-word.png" alt="слово уровня">
+    <p>Не экран, а такт: буквы выкладываются по одной на 5.25-6.00 с, под ними
+    едет строка фразы. Наша добавка - в оригинале этого нет.</p>
+  </div>
+
+</div>
+
+<h3>Попапы</h3>
+<div class="grid">
+
+  <div class="card">
+    <div class="head"><span class="badge s">статика</span><span class="name">Новый предмет - магнит</span></div>
+    <img src="unlock-magnet.png" alt="попап открытия бустера">
+    <p>Первая из трёх фаз открытия бустера: предмет на фиолетовом солнце,
+    «Ты открыл», имя оранжевым, зелёная «Забрать».</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge s">статика</span><span class="name">Рука на слоте</span></div>
+    <img src="hand-on-slot.png" alt="рука на слоте">
+    <p>Вторая фаза: доска притушена, рука показывает на слот, баннера ещё нет.
+    Рука покачивается - единственное движение в кадре.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge s">статика</span><span class="name">Отлично - лифт</span></div>
+    <img src="welldone-elevator.png" alt="попап новой механики">
+    <p>Пара для нового типа лунки: «Отлично», картинка механики, две строки
+    объяснения, «Дальше». Так же выглядят попапы стрелки (15) и слоя (30).</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge s">статика</span><span class="name">Настройки</span></div>
+    <img src="settings.png" alt="настройки">
+    <p>Звук, музыка, вибрация, обратная связь, перезапуск - и наша строка с
+    алфавитом, которой в оригинале нет.</p>
+  </div>
+
+</div>
+
+<h2>Все доски: 1-41</h2>
+<p class="note">
+  Полка бустеров на каждом кадре такая, какой она была бы у игрока на этом
+  уровне. Видно и подписи сложности - <b>Hard</b> на 19, 25 и 35,
+  <b>Super Hard</b> на 29 и 39.
+</p>
+<div class="boards" id="boards"></div>
+
+<h2>Чего здесь нет, потому что этого нет в игре</h2>
+<ul>
+  <li><b>Лидерборд Hoot Cup</b> - владелец просил скопировать, задача отдельная и
+  ещё не сделана.</li>
+  <li><b>Claim x2 за рекламу</b> - зафиксировано по записям, строить пока
+  запрещено.</li>
+  <li><b>Магазин и главный экран</b> - предложение Лёхи, он сам назвал его
+  дискуссионным.</li>
+  <li><b>Notification, Rate Us, ежедневный вход</b> - исключены по решению
+  владельца.</li>
+</ul>
+
+<h2>Варианты, из которых выбирали</h2>
+<p class="note">
+  Разбор записи Лёхи от 31.07 - расшифровка голоса и разбор по кадрам лежат в
+  <code>docs/voice-2026-07-31.md</code>. По каждому его замечанию собрано
+  несколько рабочих вариантов, снятых с отдельной копии сборки: это не рисунки,
+  а настоящий холст. Зелёная метка - что выбрано, оранжевая - что ещё ждёт
+  решения владельца. Как выглядит то, что в итоге встало в билд, показано выше
+  в разделе «Путь игрока».
+</p>
+
+<h3>Экран победы - логотип выше, слово наверх</h3>
+<p class="note">
+  Скрин, который он прислал с двумя красными стрелками: одна сверху в логотип,
+  вторая длинной дугой снизу от строки со словом вверх. Читается так:
+  <b>логотип поднять, а слово с фразой перенести к нему вплотную</b>. Сейчас
+  слово лежит внизу, между шкалой предмета и кнопкой, и его никто не замечает -
+  а это наша собственная механика, в оригинале её нет вовсе.
+</p>
+<div class="grid">
+
+  <div class="card">
+    <div class="head"><span class="badge s">статика</span><span class="name">Сейчас</span></div>
+    <img src="var-win-now.png" alt="экран победы сейчас" loading="lazy">
+    <p>Логотип на 240, слово на 864 - у самой кнопки. Между логотипом и героем
+    пустое место, а внизу тесно.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge q">решения нет</span><span class="name">Вариант 1 - перенос как есть</span></div>
+    <img src="var-win-v1.png" alt="экран победы, вариант 1" loading="lazy">
+    <p>Логотип поднят на 70, слово и фраза встали в освободившееся место, кнопка
+    подтянута вверх на 50, чтобы внизу не осталось дыры. Размер слова прежний.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge q">решения нет</span><span class="name">Вариант 2 - слово крупнее</span></div>
+    <img src="var-win-v2.png" alt="экран победы, вариант 2" loading="lazy">
+    <p>То же самое, но буквы слова выросли с 20 до 27, а строка фразы с 18 до 21.
+    В заголовочном месте прежний размер читается как приписка.</p>
+  </div>
+
+  <div class="card wide">
+    <div class="head"><span class="badge s">статика</span><span class="name">Вариант 2 на длинном слове</span></div>
+    <img src="var-win-word.png" alt="экран победы с длинным словом" loading="lazy">
+    <p>Уровень 5, слово <b>ТЕПЛО</b>. На двух буквах разницу вариантов почти не
+    видно, на пяти - видно: логотип и слово читаются как один блок.</p>
+  </div>
+
+</div>
+<p class="note">
+  Два вопроса, которые этот перенос за собой тянет и на которые ответа пока нет.
+  <b>Первый:</b> слово по-прежнему выкладывается на 5.25 секунде, после обеих
+  шкал - то есть верх экрана полторы секунды стоит пустой. Возможно, теперь его
+  надо показывать раньше. <b>Второй:</b> кнопка сейчас просто подтянута вверх,
+  но, может быть, освободившееся место внизу стоит отдать чему-то другому.
+</p>
+
+<h3>Нажатие в подсказке первого уровня</h3>
+<p class="note">
+  Его слова, 0:12-1:31: «Сейчас не очень понятно, что это такое. Нужно показать
+  нажатие. Палец опускается на дыру, она уменьшается на 10 процентов, потом
+  возвращается, и только после этого едет вниз на букву». Первую сборку вариантов
+  он забраковал словами «я не отличаю B от C» - и был прав: ужималась серая
+  плашка, а она в момент нажатия спрятана под самой лункой. В этих гифках
+  ужимается сама лунка.
+</p>
+<div class="grid">
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">A - без нажатия</span></div>
+    <img src="var-tut-none.gif" alt="подсказка без нажатия" loading="lazy">
+    <p>Как в оригинале: палец просто едет вниз и пропадает. Нажатия нет вовсе.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge p">выбрано</span><span class="name">B - нажатие 10%</span></div>
+    <img src="var-tut-10.gif" alt="подсказка с нажатием 10 процентов" loading="lazy">
+    <p>Ровно та цифра, которую он назвал. Заметно, но не бросается в глаза -
+    именно этот вариант и стоит в билде.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">C - нажатие 18% и колечко</span></div>
+    <img src="var-tut-18.gif" alt="подсказка с нажатием 18 процентов" loading="lazy">
+    <p>Запас на случай, если 10% на телефоне не прочитаются: палец ещё и
+    проваливается, от него расходится белое кольцо.</p>
+  </div>
+
+  <div class="card wide">
+    <div class="head"><span class="badge s">покадрово</span><span class="name">Тот же момент по кадрам</span></div>
+    <div><img src="var-press-10.png" alt="нажатие 10 процентов покадрово" loading="lazy"><div class="cap">B - 10%</div></div>
+    <div style="margin-top:12px"><img src="var-press-18.png" alt="нажатие 18 процентов покадрово" loading="lazy"><div class="cap">C - 18% и колечко</div></div>
+    <p>Гифка крутится и разницу поймать трудно, поэтому тот же такт разложен по
+    кадрам. Видно, как лунка садится под пальцем и возвращается.</p>
+  </div>
+
+</div>
+
+<h3>Подсказка про лифт</h3>
+<p class="note">
+  Его слова, 4:50-6:24: «Нужен туториал по-любому и для лифтов. Подъезжает
+  платформа к букве, и из лифта прыгают буквы в дыру» - и вторым вариантом
+  «либо палец подводит лунку». Владелец выбрал вариант с пальцем.
+</p>
+<div class="grid">
+
+  <div class="card">
+    <div class="head"><span class="badge p">выбрано</span><span class="name">B - палец ведёт лунку</span></div>
+    <img src="var-lift-hand.gif" alt="подсказка лифта с пальцем" loading="lazy">
+    <p>Палец прижимает лунку, ведёт её к устью шахты, оттуда выпрыгивает буква.
+    Тот же язык, что и в подсказке первого уровня.</p>
+  </div>
+
+  <div class="card">
+    <div class="head"><span class="badge a">анимация</span><span class="name">A - лунка едет сама</span></div>
+    <img src="var-lift-noHand.gif" alt="подсказка лифта без пальца" loading="lazy">
+    <p>Без пальца: лунка подъезжает сама. Короче, но не показывает, что двигать
+    её должен игрок.</p>
+  </div>
+
+</div>
+
+<h3>Очередь в шахте лифта</h3>
+<p class="note">
+  Его слова, 6:24-6:55: «Мишанина из буковок, и это ещё они одинакового цвета, а
+  когда разные - вообще... вот тут обрезается сверху. Наверное, одна буква должна
+  быть всегда, а остальные можно просто цветами показывать рядышком». Речь именно
+  про шахту, не про доску. Во всех вариантах кроме A передняя буква ещё и
+  перестала обрезаться краем шахты - это и есть его «обрезается сверху».
+</p>
+<div class="grid">
+
+  <div class="card wide">
+    <div class="head"><span class="badge q">решения нет</span><span class="name">Четыре варианта, крупно</span></div>
+    <img src="var-shaft-zoom.png" alt="варианты очереди в шахте крупно" loading="lazy">
+    <p><b>A</b> как сейчас - две буквы одна за другой, задняя срезана.
+    <b>B</b> - вторая просто шариком. <b>C</b> - очередь точками у дальнего края.
+    <b>D</b> - очередь полоской.</p>
+  </div>
+
+  <div class="card wide">
+    <div class="head"><span class="badge s">статика</span><span class="name">Те же четыре на целой доске</span></div>
+    <img src="var-shaft-board.png" alt="варианты очереди в шахте на доске" loading="lazy">
+    <p>Уровень 8 - тот самый, на котором он это и говорил.</p>
+  </div>
+
+</div>
+
+<h3>Глубина лунок</h3>
+<p class="note">
+  Его слова, 1:47-2:26: «Хочется у дыр показать глубину. Всё же ещё не знаю как.
+  Можно рефы посмотреть, такие игры как Hole.io, там чёрные дыры, но они на Unity
+  шейдером сделаны». И в 8:21: «если у нейронки не выйдет - дайте знать, отдам
+  артисту». Спеки нет, поэтому это четыре пробы вслепую.
+</p>
+<div class="grid">
+
+  <div class="card wide">
+    <div class="head"><span class="badge q">решения нет</span><span class="name">Одна лунка крупно</span></div>
+    <img src="var-pit-zoom.png" alt="варианты глубины лунки крупно" loading="lazy">
+    <p><b>1</b> как сейчас - плоская заливка, как и в оригинале.
+    <b>2</b> - тень от стенок внутрь. <b>3</b> - воронка, чернота копится к
+    центру. <b>4</b> - коробка с ближней стенкой сверху.</p>
+  </div>
+
+  <div class="card wide">
+    <div class="head"><span class="badge s">статика</span><span class="name">Те же четыре на целой доске</span></div>
+    <img src="var-pit-board.png" alt="варианты глубины лунки на доске" loading="lazy">
+    <p>На доске разница мельче, чем на крупном плане - это тоже довод при выборе.</p>
+  </div>
+
+</div>
+
+<h3>Буквы на доске</h3>
+<p class="note">
+  Снято до того, как выяснилось, что «мишанина» относится только к шахте. На
+  доске буквы остаются как есть; листы лежат здесь на случай, если разговор к ним
+  вернётся.
+</p>
+<div class="grid">
+
+  <div class="card wide">
+    <div class="head"><span class="badge q">не требуется</span><span class="name">Пять вариантов, уровень 11</span></div>
+    <img src="var-letters-l11.png" alt="варианты букв на доске, уровень 11" loading="lazy">
+    <p><b>A</b> как сейчас. <b>B</b> - одна буква на цвет. <b>C</b> - буквы только
+    в лифтах. <b>D</b> - буква значком на шарике. <b>E</b> - без букв, ближе всего
+    к оригиналу.</p>
+  </div>
+
+  <div class="card wide">
+    <div class="head"><span class="badge s">статика</span><span class="name">Те же пять, уровень 8</span></div>
+    <img src="var-letters-l8.png" alt="варианты букв на доске, уровень 8" loading="lazy">
+  </div>
+
+</div>
+
+<h2>Покадровые листы</h2>
+<p class="note">
+  Для спора о конкретных тактах гифки мало - нужен лист с подписанным временем:
+  <a href="../compare/storyboard-complete-ours.png">наш экран победы</a>,
+  <a href="../compare/storyboard-complete-original.png">оригинал</a>,
+  <a href="../compare/storyboard-tutorial-level1.png">подсказка первого уровня</a>.
+</p>
+
+<footer>
+  <p>Как пересобрать (нужен запущенный <code>npm run dev</code> на 5199):</p>
+<pre>
+# пульт: ставит __h на страницу, дальше любой экран - одной строкой
+node tools/headless.mjs "http://127.0.0.1:5199/#rec=5,12,240,10" --wait 2200 \
+  --eval @tools/screens.js \
+  --eval "__h.arm(11,0)" --wait 500 \
+  --eval "setTimeout(() =&gt; __h.tapHole(0), 900)" \
+  --eval-shot @tools/record-strip.js fire.jpg
+
+ffmpeg -i fire.jpg -vf "format=rgb24,untile=10x6,setpts=N/12/TB,\
+split[a][b];[a]palettegen[p];[b][p]paletteuse" -r 12 -loop 0 fire.gif
+</pre>
+  <p>
+    Три места, где это ломается молча: лист кадров надо отдавать <b>JPEG</b>-ом
+    (PNG с рифом - десятки мегабайт base64, и вызов виснет без ошибки),
+    <code>untile</code> не режет JPEG без <code>format=rgb24</code>, а без
+    <code>setpts</code> все кадры получают одно время и в гифке остаётся один.
+    Проверять <code>ffprobe -count_frames</code>.
+  </p>
+</footer>
+
+</div>
+<script>
+  const box = document.getElementById("boards");
+  for (let i = 1; i <= 41; i++) {
+    const n = String(i).padStart(2, "0");
+    box.insertAdjacentHTML("beforeend",
+      `<figure><img src="boards/board-${n}.png" alt="уровень ${i}" loading="lazy">` +
+      `<figcaption>уровень ${i}</figcaption></figure>`);
+  }
+</script>
+</body>
+</html>
