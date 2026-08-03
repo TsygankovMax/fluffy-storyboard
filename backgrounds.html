@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Пять вариантов фона для экрана победы Fluffy Drop вместо подводного рифа, каждый показан на всех трёх экранах.">
+<title>Фон экрана победы: варианты</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  img { max-width: 100%; }
+
+  :root {
+    /* Цвета взяты из самой игры: фон комнаты, его подсветка, и три цвета
+       букв - розовый, бирюзовый, жёлтый - на метки. */
+    --ground: #f0ecf6;
+    --ground-2: #e5dff0;
+    --surface: #fbf9fd;
+    --line: #d2c9e2;
+    --text: #1b1730;
+    --text-dim: #5b5474;
+    --violet: #4a3ec4;
+    --violet-soft: #7a6fe0;
+    --pink: #b8397a;
+    --teal: #10707f;
+    --amber: #9a6a05;
+    --shadow: 0 1px 2px rgba(24, 18, 48, 0.07), 0 10px 30px rgba(24, 18, 48, 0.09);
+
+    --display: Georgia, "Times New Roman", serif;
+    --body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --mono: Consolas, "Cascadia Mono", "SF Mono", "DejaVu Sans Mono", monospace;
+    --measure: 36rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #100c26;
+      --ground-2: #171338;
+      --surface: #1d1846;
+      --line: #322c66;
+      --text: #eae7fb;
+      --text-dim: #a49ed6;
+      --violet: #a99dff;
+      --violet-soft: #8478e8;
+      --pink: #ff8fc0;
+      --teal: #6fd3ff;
+      --amber: #ffcf4a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 12px 34px rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  :root[data-theme="light"] {
+    --ground: #f0ecf6; --ground-2: #e5dff0; --surface: #fbf9fd; --line: #d2c9e2;
+    --text: #1b1730; --text-dim: #5b5474;
+    --violet: #4a3ec4; --violet-soft: #7a6fe0;
+    --pink: #b8397a; --teal: #10707f; --amber: #9a6a05;
+    --shadow: 0 1px 2px rgba(24, 18, 48, 0.07), 0 10px 30px rgba(24, 18, 48, 0.09);
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #100c26; --ground-2: #171338; --surface: #1d1846; --line: #322c66;
+    --text: #eae7fb; --text-dim: #a49ed6;
+    --violet: #a99dff; --violet-soft: #8478e8;
+    --pink: #ff8fc0; --teal: #6fd3ff; --amber: #ffcf4a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 12px 34px rgba(0, 0, 0, 0.45);
+  }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 66rem; margin: 0 auto; padding: 0 1.25rem 6rem; }
+  .col { max-width: var(--measure); }
+  p { margin: 0 0 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  a { color: var(--teal); text-underline-offset: 3px; }
+
+  code, .mono { font-family: var(--mono); font-size: 0.86em; }
+  code {
+    background: color-mix(in srgb, var(--violet) 15%, transparent);
+    padding: 0.1em 0.36em;
+    border-radius: 3px;
+  }
+
+  /* ------------------------------------------------------------------ hero */
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 4.5rem 1.25rem 3rem;
+    margin: 0 -1.25rem 3rem;
+    background:
+      radial-gradient(58% 42% at 50% 48%, color-mix(in srgb, var(--violet-soft) 38%, transparent), transparent 72%),
+      var(--ground-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero > * { position: relative; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 0 0 1rem;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2rem, 6vw, 3.1rem);
+    line-height: 1.07;
+    letter-spacing: -0.018em;
+    text-wrap: balance;
+    margin: 0 0 1rem;
+    max-width: 17ch;
+  }
+
+  .standfirst { font-size: 1.1rem; color: var(--text-dim); max-width: 44ch; }
+
+  /* -------------------------------------------------------------- sections */
+
+  section { margin-bottom: 3.5rem; }
+
+  h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.35rem, 3.4vw, 1.8rem);
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    margin: 0 0 0.8rem;
+    text-wrap: balance;
+  }
+
+  .howto {
+    padding: 1.2rem 1.35rem;
+    border-left: 2px solid var(--pink);
+    background: var(--surface);
+    border-radius: 0 8px 8px 0;
+    max-width: 42rem;
+    font-size: 0.96rem;
+  }
+
+  /* -------------------------------------------------------------- variants */
+
+  .variant {
+    border-top: 1px solid var(--line);
+    padding-top: 1.7rem;
+    margin-bottom: 3.2rem;
+  }
+
+  .variant.ref { opacity: 0.72; }
+
+  .vhead {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .vnum {
+    font-family: var(--mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--violet);
+    line-height: 1;
+  }
+
+  .vname {
+    font-family: var(--display);
+    font-size: 1.32rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.24em 0.62em;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .tag.grad { color: var(--teal); }
+  .tag.patt { color: var(--amber); }
+  .tag.art { color: var(--pink); }
+  .tag.now { color: var(--text-dim); }
+
+  .vwhy {
+    color: var(--text-dim);
+    font-size: 0.98rem;
+    max-width: 52ch;
+    margin: 0 0 1.25rem;
+  }
+
+  .strip {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .strip figure {
+    margin: 0;
+    flex: 0 0 auto;
+    width: 11rem;
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 46rem) {
+    .strip { overflow-x: visible; gap: 1.3rem; }
+    .strip figure { width: 13.5rem; }
+  }
+
+  .strip img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
+    box-shadow: var(--shadow);
+    background: #100c26;
+  }
+
+  .strip figcaption {
+    margin-top: 0.55rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+
+  .strip figcaption b { color: var(--text); font-weight: 600; display: block; }
+
+  /* ----------------------------------------------------------------- misc */
+
+  .take {
+    display: grid;
+    gap: 0.9rem;
+    padding: 1.5rem 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface);
+    max-width: 44rem;
+  }
+
+  .take h3 {
+    font-family: var(--body);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .take p { font-size: 0.97rem; margin: 0; }
+  .take b { color: var(--violet); }
+
+  ul.plain { margin: 0 0 1rem; padding-left: 1.15rem; }
+  ul.plain li { margin-bottom: 0.45rem; }
+
+  .foot {
+    margin-top: 3.5rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    max-width: 48rem;
+  }
+
+  :focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Fluffy Drop / варианты · 3 августа 2026</p>
+  <h1>Фон экрана победы</h1>
+  <p class="standfirst">Риф уходит. Вот пять замен, и каждая собрана только из того, что в игре уже есть: её собственный фон, её буквы, её клетки, её десять цветов. Ничего нового не нарисовано.</p>
+</header>
+
+<section>
+  <h2>Как это читать</h2>
+  <div class="col">
+    <p>Каждый вариант снят с живой сборки на всех трёх экранах, где этот фон стоит: уровень пройден, новый предмет, награда из сундука. Это не рисунки, а настоящий холст игры.</p>
+  </div>
+  <div class="howto">
+    <p>Ответить можно номером или названием. Смешивать тоже нормально: «второй, но луч послабее» или «пятый, но без розового» это рабочий ответ.</p>
+  </div>
+</section>
+
+<section>
+
+  <div class="variant ref">
+    <div class="vhead">
+      <span class="vnum">0</span>
+      <h2 class="vname">Риф, как сейчас</h2>
+      <span class="tag now">что убираем</span>
+    </div>
+    <p class="vwhy">Скопирован с записи оригинала точно, до цвета каждого куста. Проблема не в качестве, а в том, что под водой у нас никто не живёт: у оригинала там пушистики, у нас на поле буквы.</p>
+    <div class="strip">
+      <figure><img src="bg/v0-win.webp" alt="Экран победы на фоне рифа" width="340" height="604" loading="lazy"><figcaption><b>Уровень пройден</b>После каждого уровня</figcaption></figure>
+      <figure><img src="bg/v0-newitem.webp" alt="Экран нового предмета на фоне рифа" width="340" height="604" loading="lazy"><figcaption><b>Новый предмет</b>Когда полоска заполнилась</figcaption></figure>
+      <figure><img src="bg/v0-chest.webp" alt="Экран награды из сундука на фоне рифа" width="340" height="604" loading="lazy"><figcaption><b>Награда из сундука</b>Каждый третий уровень</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="variant">
+    <div class="vhead">
+      <span class="vnum">1</span>
+      <h2 class="vname">Комната игры</h2>
+      <span class="tag grad">градиент</span>
+    </div>
+    <p class="vwhy">Ровно тот же фон, что под игровым полем и на загрузке: плоский фиолетовый и одно эллиптическое пятно света. Экран победы становится той же комнатой, что и всё остальное в игре. Не рисуется вообще ничего нового, ни одной новой строчки кода в отрисовке.</p>
+    <div class="strip">
+      <figure><img src="bg/v1-win.webp" alt="Экран победы на фоне комнаты игры" width="340" height="604" loading="lazy"><figcaption><b>Уровень пройден</b></figcaption></figure>
+      <figure><img src="bg/v1-newitem.webp" alt="Экран нового предмета на фоне комнаты игры" width="340" height="604" loading="lazy"><figcaption><b>Новый предмет</b></figcaption></figure>
+      <figure><img src="bg/v1-chest.webp" alt="Экран награды из сундука на фоне комнаты игры" width="340" height="604" loading="lazy"><figcaption><b>Награда из сундука</b></figcaption></figure>
+    </div>
+  </div>
+
+  <div class="variant">
+    <div class="vhead">
+      <span class="vnum">2</span>
+      <h2 class="vname">Столб света</h2>
+      <span class="tag grad">градиент и свет</span>
+    </div>
+    <p class="vwhy">Та же комната, плюс широкий мягкий луч сверху и лужа света внизу, в которой стоит кнопка. От рифа остаётся единственное, что в нём работало: сцена, освещённая сверху. Луч медленно качается.</p>
+    <div class="strip">
+      <figure><img src="bg/v2-win.webp" alt="Экран победы со столбом света" width="340" height="604" loading="lazy"><figcaption><b>Уровень пройден</b></figcaption></figure>
+      <figure><img src="bg/v2-newitem.webp" alt="Экран нового предмета со столбом света" width="340" height="604" loading="lazy"><figcaption><b>Новый предмет</b></figcaption></figure>
+      <figure><img src="bg/v2-chest.webp" alt="Экран награды из сундука со столбом света" width="340" height="604" loading="lazy"><figcaption><b>Награда из сундука</b></figcaption></figure>
+    </div>
+  </div>
+
+  <div class="variant">
+    <div class="vhead">
+      <span class="vnum">3</span>
+      <h2 class="vname">Буквы</h2>
+      <span class="tag patt">паттерн</span>
+    </div>
+    <p class="vwhy">Обои из наших же букв, медленно ползут вверх. Взяты одиннадцать форм, которые читаются и в кириллице, и в латинице, поэтому паттерн один на оба языка. Все буквы одного цвета: десять цветов здесь читались бы как второе поле за экраном.</p>
+    <div class="strip">
+      <figure><img src="bg/v3-win.webp" alt="Экран победы на фоне паттерна из букв" width="340" height="604" loading="lazy"><figcaption><b>Уровень пройден</b></figcaption></figure>
+      <figure><img src="bg/v3-newitem.webp" alt="Экран нового предмета на фоне паттерна из букв" width="340" height="604" loading="lazy"><figcaption><b>Новый предмет</b></figcaption></figure>
+      <figure><img src="bg/v3-chest.webp" alt="Экран награды из сундука на фоне паттерна из букв" width="340" height="604" loading="lazy"><figcaption><b>Награда из сундука</b></figcaption></figure>
+    </div>
+  </div>
+
+  <div class="variant">
+    <div class="vhead">
+      <span class="vnum">4</span>
+      <h2 class="vname">Клетки поля</h2>
+      <span class="tag patt">паттерн</span>
+    </div>
+    <p class="vwhy">Обои из геометрии самого поля: пустые клетки, а среди них изредка контур ямки в одном из цветов. Единственный вариант, который говорит «головоломка», не говоря при этом больше ничего.</p>
+    <div class="strip">
+      <figure><img src="bg/v4-win.webp" alt="Экран победы на фоне паттерна из клеток" width="340" height="604" loading="lazy"><figcaption><b>Уровень пройден</b></figcaption></figure>
+      <figure><img src="bg/v4-newitem.webp" alt="Экран нового предмета на фоне паттерна из клеток" width="340" height="604" loading="lazy"><figcaption><b>Новый предмет</b></figcaption></figure>
+      <figure><img src="bg/v4-chest.webp" alt="Экран награды из сундука на фоне паттерна из клеток" width="340" height="604" loading="lazy"><figcaption><b>Награда из сундука</b></figcaption></figure>
+    </div>
+  </div>
+
+  <div class="variant">
+    <div class="vhead">
+      <span class="vnum">5</span>
+      <h2 class="vname">Шары</h2>
+      <span class="tag art">арт</span>
+    </div>
+    <p class="vwhy">Расфокусированные шары в десяти цветах букв, всплывают снизу вверх. Единственный вариант, который правда «арт», а не паттерн, и всё равно сделан только из нашей палитры. Даёт экрану цвет, которого одному фиолетовому не хватает.</p>
+    <div class="strip">
+      <figure><img src="bg/v5-win.webp" alt="Экран победы на фоне размытых цветных шаров" width="340" height="604" loading="lazy"><figcaption><b>Уровень пройден</b></figcaption></figure>
+      <figure><img src="bg/v5-newitem.webp" alt="Экран нового предмета на фоне размытых цветных шаров" width="340" height="604" loading="lazy"><figcaption><b>Новый предмет</b></figcaption></figure>
+      <figure><img src="bg/v5-chest.webp" alt="Экран награды из сундука на фоне размытых цветных шаров" width="340" height="604" loading="lazy"><figcaption><b>Награда из сундука</b></figcaption></figure>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <h2>Если коротко, моё мнение</h2>
+  <div class="take">
+    <h3>Чем бы я закрыл вопрос</h3>
+    <p><b>2 или 5.</b> Второй ближе всего к тому, что экран уже умеет: свет сверху в рифе был, и именно он делал из экрана сцену, а не заставку. Пятый даёт цвет и ощущение праздника, которого одному фиолетовому не хватает.</p>
+    <p><b>1</b> самый безопасный и самый честный: победа в той же комнате, где играли. Если сомневаешься, он не проиграет никогда.</p>
+    <p><b>3 и 4</b> сильнее всех «про игру», но паттерн на этом экране конкурирует с логотипом. Поэтому в обоих середина намеренно приглушена, и рисунок виден только сверху и снизу.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Две честные оговорки</h2>
+  <div class="col">
+    <ul class="plain">
+      <li><b>На экране сундука все шесть выглядят похоже.</b> Попап затемняет фон почти целиком, и от него остаются только края. Это не ошибка съёмки, так и в игре.</li>
+      <li><b>Движение на картинке не видно.</b> Луч во втором качается, буквы в третьем и клетки в четвёртом ползут вверх, шары в пятом всплывают. Всё медленно, чтобы не отвлекать от кнопки.</li>
+    </ul>
+  </div>
+</section>
+
+<p class="foot">
+  Снято с текущей сборки, шесть фонов на трёх экранах, восемнадцать кадров.
+  Переключатель живёт в <span class="mono">src/render/winBackdrop.ts</span>, одна константа
+  <span class="mono">WIN_BACKDROP</span>; после выбора остальные удаляются, чтобы в коде
+  не оставался тумблер. Что именно было нарисовано в рифе и на каких экранах он стоит,
+  разобрано на <a href="reef-review.html">отдельной странице</a>.
+</p>
+
+</div>
+</body>
+</html>
