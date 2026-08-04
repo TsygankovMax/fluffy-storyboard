@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluffy Drop - элементы игры</title>
+<style>
+  body { margin: 0; padding: 32px 24px 80px; background: #14112e; color: #e9e7ff;
+         font: 16px/1.55 system-ui, "Segoe UI", sans-serif; }
+  h1 { font-size: 28px; margin: 0 0 8px; }
+  h2 { font-size: 19px; margin: 44px 0 4px; }
+  p { color: #a49ed6; max-width: 70ch; margin: 0 0 12px; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+  figure { margin: 0; background: #1e1a44; border: 1px solid #322c66; border-radius: 12px; padding: 10px; }
+  /* Клетка под картинкой: без неё прозрачный PNG на тёмном фоне не читается. */
+  img { width: 100%; height: 150px; object-fit: contain; display: block; border-radius: 8px;
+        background-color: #2a2454;
+        background-image: linear-gradient(45deg, #241f4a 25%, transparent 25%),
+                          linear-gradient(-45deg, #241f4a 25%, transparent 25%),
+                          linear-gradient(45deg, transparent 75%, #241f4a 75%),
+                          linear-gradient(-45deg, transparent 75%, #241f4a 75%);
+        background-size: 16px 16px;
+        background-position: 0 0, 0 8px, 8px -8px, -8px 0; }
+  figcaption { font-size: 13px; padding-top: 8px; }
+  figcaption span { display: block; color: #7b74ad; font-size: 11.5px; }
+</style>
+</head>
+<body>
+<h1>Fluffy Drop - элементы игры</h1>
+<p>Каждый файл - PNG с прозрачностью, снятый из работающей игры: это не скриншот
+и не мокап, а вызов той же функции отрисовки, которой игра рисует этот элемент на
+экране. Размер задан в <code>tools/elements-page.js</code> и меняется одной цифрой.</p>
+<p>Клетка доски здесь 240 пикселей - вчетверо крупнее, чем на телефоне.</p>
+<p><b>Всё здесь нарисовано нами.</b> В игре двенадцать элементов - сундук, монета,
+замок, три бустера, четыре иконки предметов - сейчас стоят вырезками из записи
+оригинальной игры, как измерительная заглушка. Это чужой арт, в пакет он не
+попал: вместо него снят наш собственный процедурный вариант. Силуэт и роль он
+показывает верно, а рисовать эти вещи всё равно заново.</p>
+  <h2>Фоны</h2>
+  <div class="grid">
+    <figure><img src="bg-room.png" alt="Комната: фон доски" loading="lazy">
+      <figcaption>Комната: фон доски<span>bg-room.png · 720x1280</span></figcaption></figure>
+    <figure><img src="bg-win.png" alt="Комната: экран победы" loading="lazy">
+      <figcaption>Комната: экран победы<span>bg-win.png · 720x1280</span></figcaption></figure>
+  </div>
+  <h2>Лунки</h2>
+  <div class="grid">
+    <figure><img src="hole-white.png" alt="Лунка, белый" loading="lazy">
+      <figcaption>Лунка, белый<span>hole-white.png · 384x384</span></figcaption></figure>
+    <figure><img src="hole-red.png" alt="Лунка, красный" loading="lazy">
+      <figcaption>Лунка, красный<span>hole-red.png · 384x384</span></figcaption></figure>
+    <figure><img src="hole-yellow.png" alt="Лунка, жёлтый" loading="lazy">
+      <figcaption>Лунка, жёлтый<span>hole-yellow.png · 384x384</span></figcaption></figure>
+    <figure><img src="hole-purple.png" alt="Лунка, фиолетовый" loading="lazy">
+      <figcaption>Лунка, фиолетовый<span>hole-purple.png · 384x384</span></figcaption></figure>
+    <figure><img src="hole-orange.png" alt="Лунка, оранжевый" loading="lazy">
+      <figcaption>Лунка, оранжевый<span>hole-orange.png · 384x384</span></figcaption></figure>
+    <figure><img src="hole-teal.png" alt="Лунка, бирюзовый" loading="lazy">
+      <figcaption>Лунка, бирюзовый<span>hole-teal.png · 384x384</span></figcaption></figure>
+    <figure><img src="hole-pink.png" alt="Лунка, розовый" loading="lazy">
+      <figcaption>Лунка, розовый<span>hole-pink.png · 384x384</span></figcaption></figure>
+    <figure><img src="hole-green.png" alt="Лунка, зелёный" loading="lazy">
+      <figcaption>Лунка, зелёный<span>hole-green.png · 384x384</span></figcaption></figure>
+    <figure><img src="hole-blue.png" alt="Лунка, синий" loading="lazy">
+      <figcaption>Лунка, синий<span>hole-blue.png · 384x384</span></figcaption></figure>
+    <figure><img src="hole-brown.png" alt="Лунка, коричневый" loading="lazy">
+      <figcaption>Лунка, коричневый<span>hole-brown.png · 384x384</span></figcaption></figure>
+    <figure><img src="hole-wide.png" alt="Лунка на три клетки" loading="lazy">
+      <figcaption>Лунка на три клетки<span>hole-wide.png · 888x888</span></figcaption></figure>
+    <figure><img src="hole-arrow-h.png" alt="Лунка со стрелкой, вбок" loading="lazy">
+      <figcaption>Лунка со стрелкой, вбок<span>hole-arrow-h.png · 888x888</span></figcaption></figure>
+    <figure><img src="hole-arrow-v.png" alt="Лунка со стрелкой, вверх" loading="lazy">
+      <figcaption>Лунка со стрелкой, вверх<span>hole-arrow-v.png · 648x648</span></figcaption></figure>
+    <figure><img src="hole-layer.png" alt="Слоёная лунка" loading="lazy">
+      <figcaption>Слоёная лунка<span>hole-layer.png · 648x648</span></figcaption></figure>
+    <figure><img src="hole-lock.png" alt="Лунка на цепи с замком" loading="lazy">
+      <figcaption>Лунка на цепи с замком<span>hole-lock.png · 648x648</span></figcaption></figure>
+    <figure><img src="hole-star.png" alt="Звёздная лунка" loading="lazy">
+      <figcaption>Звёздная лунка<span>hole-star.png · 648x648</span></figcaption></figure>
+    <figure><img src="hole-ice.png" alt="Лунка во льду" loading="lazy">
+      <figcaption>Лунка во льду<span>hole-ice.png · 648x648</span></figcaption></figure>
+    <figure><img src="hole-stone.png" alt="Камень" loading="lazy">
+      <figcaption>Камень<span>hole-stone.png · 648x648</span></figcaption></figure>
+    <figure><img src="hole-combine.png" alt="Спаянная пара лунок" loading="lazy">
+      <figcaption>Спаянная пара лунок<span>hole-combine.png · 816x816</span></figcaption></figure>
+    <figure><img src="crate.png" alt="Ящик" loading="lazy">
+      <figcaption>Ящик<span>crate.png · 816x816</span></figcaption></figure>
+  </div>
+  <h2>Шахты</h2>
+  <div class="grid">
+    <figure><img src="lift-top.png" alt="Шахта сверху" loading="lazy">
+      <figcaption>Шахта сверху<span>lift-top.png · 576x576</span></figcaption></figure>
+    <figure><img src="lift-top-shut.png" alt="Шахта сверху, двери закрыты" loading="lazy">
+      <figcaption>Шахта сверху, двери закрыты<span>lift-top-shut.png · 576x576</span></figcaption></figure>
+    <figure><img src="lift-bottom.png" alt="Шахта снизу" loading="lazy">
+      <figcaption>Шахта снизу<span>lift-bottom.png · 576x576</span></figcaption></figure>
+    <figure><img src="lift-bottom-shut.png" alt="Шахта снизу, двери закрыты" loading="lazy">
+      <figcaption>Шахта снизу, двери закрыты<span>lift-bottom-shut.png · 576x576</span></figcaption></figure>
+    <figure><img src="lift-left.png" alt="Шахта слева" loading="lazy">
+      <figcaption>Шахта слева<span>lift-left.png · 576x576</span></figcaption></figure>
+    <figure><img src="lift-left-shut.png" alt="Шахта слева, двери закрыты" loading="lazy">
+      <figcaption>Шахта слева, двери закрыты<span>lift-left-shut.png · 576x576</span></figcaption></figure>
+    <figure><img src="lift-right.png" alt="Шахта справа" loading="lazy">
+      <figcaption>Шахта справа<span>lift-right.png · 576x576</span></figcaption></figure>
+    <figure><img src="lift-right-shut.png" alt="Шахта справа, двери закрыты" loading="lazy">
+      <figcaption>Шахта справа, двери закрыты<span>lift-right-shut.png · 576x576</span></figcaption></figure>
+    <figure><img src="tower.png" alt="Башня" loading="lazy">
+      <figcaption>Башня<span>tower.png · 624x624</span></figcaption></figure>
+  </div>
+  <h2>Шарики</h2>
+  <div class="grid">
+    <figure><img src="ball-white.png" alt="Шарик, белый" loading="lazy">
+      <figcaption>Шарик, белый<span>ball-white.png · 540x540</span></figcaption></figure>
+    <figure><img src="ball-red.png" alt="Шарик, красный" loading="lazy">
+      <figcaption>Шарик, красный<span>ball-red.png · 540x540</span></figcaption></figure>
+    <figure><img src="ball-yellow.png" alt="Шарик, жёлтый" loading="lazy">
+      <figcaption>Шарик, жёлтый<span>ball-yellow.png · 540x540</span></figcaption></figure>
+    <figure><img src="ball-purple.png" alt="Шарик, фиолетовый" loading="lazy">
+      <figcaption>Шарик, фиолетовый<span>ball-purple.png · 540x540</span></figcaption></figure>
+    <figure><img src="ball-orange.png" alt="Шарик, оранжевый" loading="lazy">
+      <figcaption>Шарик, оранжевый<span>ball-orange.png · 540x540</span></figcaption></figure>
+    <figure><img src="ball-teal.png" alt="Шарик, бирюзовый" loading="lazy">
+      <figcaption>Шарик, бирюзовый<span>ball-teal.png · 540x540</span></figcaption></figure>
+    <figure><img src="ball-pink.png" alt="Шарик, розовый" loading="lazy">
+      <figcaption>Шарик, розовый<span>ball-pink.png · 540x540</span></figcaption></figure>
+    <figure><img src="ball-green.png" alt="Шарик, зелёный" loading="lazy">
+      <figcaption>Шарик, зелёный<span>ball-green.png · 540x540</span></figcaption></figure>
+    <figure><img src="ball-blue.png" alt="Шарик, синий" loading="lazy">
+      <figcaption>Шарик, синий<span>ball-blue.png · 540x540</span></figcaption></figure>
+    <figure><img src="ball-brown.png" alt="Шарик, коричневый" loading="lazy">
+      <figcaption>Шарик, коричневый<span>ball-brown.png · 540x540</span></figcaption></figure>
+    <figure><img src="ball-key.png" alt="Шарик с ключом" loading="lazy">
+      <figcaption>Шарик с ключом<span>ball-key.png · 600x600</span></figcaption></figure>
+    <figure><img src="ball-star.png" alt="Звёздный шарик" loading="lazy">
+      <figcaption>Звёздный шарик<span>ball-star.png · 600x600</span></figcaption></figure>
+    <figure><img src="key-white.png" alt="Ключ, белый" loading="lazy">
+      <figcaption>Ключ, белый<span>key-white.png · 300x300</span></figcaption></figure>
+    <figure><img src="key-red.png" alt="Ключ, красный" loading="lazy">
+      <figcaption>Ключ, красный<span>key-red.png · 300x300</span></figcaption></figure>
+    <figure><img src="key-yellow.png" alt="Ключ, жёлтый" loading="lazy">
+      <figcaption>Ключ, жёлтый<span>key-yellow.png · 300x300</span></figcaption></figure>
+    <figure><img src="key-purple.png" alt="Ключ, фиолетовый" loading="lazy">
+      <figcaption>Ключ, фиолетовый<span>key-purple.png · 300x300</span></figcaption></figure>
+    <figure><img src="key-orange.png" alt="Ключ, оранжевый" loading="lazy">
+      <figcaption>Ключ, оранжевый<span>key-orange.png · 300x300</span></figcaption></figure>
+    <figure><img src="key-teal.png" alt="Ключ, бирюзовый" loading="lazy">
+      <figcaption>Ключ, бирюзовый<span>key-teal.png · 300x300</span></figcaption></figure>
+    <figure><img src="key-pink.png" alt="Ключ, розовый" loading="lazy">
+      <figcaption>Ключ, розовый<span>key-pink.png · 300x300</span></figcaption></figure>
+    <figure><img src="key-green.png" alt="Ключ, зелёный" loading="lazy">
+      <figcaption>Ключ, зелёный<span>key-green.png · 300x300</span></figcaption></figure>
+    <figure><img src="key-blue.png" alt="Ключ, синий" loading="lazy">
+      <figcaption>Ключ, синий<span>key-blue.png · 300x300</span></figcaption></figure>
+    <figure><img src="key-brown.png" alt="Ключ, коричневый" loading="lazy">
+      <figcaption>Ключ, коричневый<span>key-brown.png · 300x300</span></figcaption></figure>
+  </div>
+  <h2>Предметы</h2>
+  <div class="grid">
+    <figure><img src="item-elevator.png" alt="Предмет: Лифт" loading="lazy">
+      <figcaption>Предмет: Лифт<span>item-elevator.png · 600x600</span></figcaption></figure>
+    <figure><img src="item-arrow.png" alt="Предмет: Стрелка" loading="lazy">
+      <figcaption>Предмет: Стрелка<span>item-arrow.png · 600x600</span></figcaption></figure>
+    <figure><img src="item-layer.png" alt="Предмет: Слой" loading="lazy">
+      <figcaption>Предмет: Слой<span>item-layer.png · 600x600</span></figcaption></figure>
+    <figure><img src="item-combine.png" alt="Предмет: Спайка" loading="lazy">
+      <figcaption>Предмет: Спайка<span>item-combine.png · 600x600</span></figcaption></figure>
+    <figure><img src="item-lock.png" alt="Предмет: Замок" loading="lazy">
+      <figcaption>Предмет: Замок<span>item-lock.png · 600x600</span></figcaption></figure>
+    <figure><img src="item-tower.png" alt="Предмет: Башня" loading="lazy">
+      <figcaption>Предмет: Башня<span>item-tower.png · 600x600</span></figcaption></figure>
+    <figure><img src="item-star.png" alt="Предмет: Звезда" loading="lazy">
+      <figcaption>Предмет: Звезда<span>item-star.png · 600x600</span></figcaption></figure>
+    <figure><img src="item-frozen.png" alt="Предмет: Лёд" loading="lazy">
+      <figcaption>Предмет: Лёд<span>item-frozen.png · 600x600</span></figcaption></figure>
+    <figure><img src="item-stone.png" alt="Предмет: Камень" loading="lazy">
+      <figcaption>Предмет: Камень<span>item-stone.png · 600x600</span></figcaption></figure>
+    <figure><img src="item-crates.png" alt="Предмет: Ящики" loading="lazy">
+      <figcaption>Предмет: Ящики<span>item-crates.png · 600x600</span></figcaption></figure>
+  </div>
+  <h2>Бустеры</h2>
+  <div class="grid">
+    <figure><img src="booster-magnet.png" alt="Бустер: Магнит" loading="lazy">
+      <figcaption>Бустер: Магнит<span>booster-magnet.png · 600x600</span></figcaption></figure>
+    <figure><img src="icon-magnet.png" alt="Иконка: Магнит" loading="lazy">
+      <figcaption>Иконка: Магнит<span>icon-magnet.png · 400x400</span></figcaption></figure>
+    <figure><img src="booster-claw.png" alt="Бустер: Клешня" loading="lazy">
+      <figcaption>Бустер: Клешня<span>booster-claw.png · 600x600</span></figcaption></figure>
+    <figure><img src="icon-claw.png" alt="Иконка: Клешня" loading="lazy">
+      <figcaption>Иконка: Клешня<span>icon-claw.png · 400x400</span></figcaption></figure>
+    <figure><img src="booster-shrinker.png" alt="Бустер: Ужиматель" loading="lazy">
+      <figcaption>Бустер: Ужиматель<span>booster-shrinker.png · 600x600</span></figcaption></figure>
+    <figure><img src="icon-shrinker.png" alt="Иконка: Ужиматель" loading="lazy">
+      <figcaption>Иконка: Ужиматель<span>icon-shrinker.png · 400x400</span></figcaption></figure>
+  </div>
+  <h2>Интерфейс</h2>
+  <div class="grid">
+    <figure><img src="coin.png" alt="Монета" loading="lazy">
+      <figcaption>Монета<span>coin.png · 600x600</span></figcaption></figure>
+    <figure><img src="chest.png" alt="Сундук" loading="lazy">
+      <figcaption>Сундук<span>chest.png · 600x600</span></figcaption></figure>
+    <figure><img src="chest-open.png" alt="Сундук открытый" loading="lazy">
+      <figcaption>Сундук открытый<span>chest-open.png · 600x600</span></figcaption></figure>
+    <figure><img src="lock-slot.png" alt="Замок на слоте" loading="lazy">
+      <figcaption>Замок на слоте<span>lock-slot.png · 600x600</span></figcaption></figure>
+    <figure><img src="gear.png" alt="Шестерёнка" loading="lazy">
+      <figcaption>Шестерёнка<span>gear.png · 600x600</span></figcaption></figure>
+    <figure><img src="refresh.png" alt="Перезапуск" loading="lazy">
+      <figcaption>Перезапуск<span>refresh.png · 600x600</span></figcaption></figure>
+    <figure><img src="chevron.png" alt="Стрелка-шеврон" loading="lazy">
+      <figcaption>Стрелка-шеврон<span>chevron.png · 600x600</span></figcaption></figure>
+    <figure><img src="ribbon.png" alt="Лента" loading="lazy">
+      <figcaption>Лента<span>ribbon.png · 600x600</span></figcaption></figure>
+    <figure><img src="close.png" alt="Крестик" loading="lazy">
+      <figcaption>Крестик<span>close.png · 600x600</span></figcaption></figure>
+    <figure><img src="sunburst-violet.png" alt="Лучи, фиолетовые" loading="lazy">
+      <figcaption>Лучи, фиолетовые<span>sunburst-violet.png · 900x900</span></figcaption></figure>
+    <figure><img src="sunburst-gold.png" alt="Лучи, золотые" loading="lazy">
+      <figcaption>Лучи, золотые<span>sunburst-gold.png · 900x900</span></figcaption></figure>
+    <figure><img src="button-green.png" alt="Кнопка зелёная" loading="lazy">
+      <figcaption>Кнопка зелёная<span>button-green.png · 900x500</span></figcaption></figure>
+    <figure><img src="button-red.png" alt="Кнопка красная" loading="lazy">
+      <figcaption>Кнопка красная<span>button-red.png · 900x500</span></figcaption></figure>
+    <figure><img src="button-violet.png" alt="Кнопка фиолетовая" loading="lazy">
+      <figcaption>Кнопка фиолетовая<span>button-violet.png · 900x500</span></figcaption></figure>
+    <figure><img src="toggle-on.png" alt="Тумблер включён" loading="lazy">
+      <figcaption>Тумблер включён<span>toggle-on.png · 500x500</span></figcaption></figure>
+    <figure><img src="toggle-off.png" alt="Тумблер выключен" loading="lazy">
+      <figcaption>Тумблер выключен<span>toggle-off.png · 500x500</span></figcaption></figure>
+    <figure><img src="panel.png" alt="Панель попапа" loading="lazy">
+      <figcaption>Панель попапа<span>panel.png · 1000x900</span></figcaption></figure>
+  </div>
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluffy Drop - материалы для художника</title>
+<style>
+  body { margin: 0; padding: 34px 24px 90px; background: #14112e; color: #e9e7ff;
+         font: 16px/1.6 system-ui, "Segoe UI", sans-serif; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  h1 { font-size: clamp(26px, 4vw, 32px); margin: 0 0 10px; }
+  h2 { font-size: 20px; margin: 46px 0 6px; }
+  p { color: #a49ed6; max-width: 72ch; margin: 0 0 12px; }
+  a { color: #8fd0ff; }
+  .warn { border-left: 3px solid #ff7d7d; padding: 12px 16px; background: #ffffff08;
+          border-radius: 0 10px 10px 0; color: #e9e7ff; max-width: 72ch; }
+  .warn + .warn { margin-top: 12px; }
+  .big { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); margin: 18px 0 0; }
+  .big a { display: block; background: #1e1a44; border: 1px solid #322c66; border-radius: 14px;
+           padding: 16px; text-decoration: none; color: #e9e7ff; font-weight: 600; }
+  .big a span { display: block; color: #7b74ad; font-size: 13px; font-weight: 400; padding-top: 4px; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); margin-top: 14px; }
+  figure { margin: 0; background: #1e1a44; border: 1px solid #322c66; border-radius: 12px; padding: 8px; }
+  img { width: 100%; height: 104px; object-fit: contain; display: block; border-radius: 8px;
+        background-color: #2a2454;
+        background-image: linear-gradient(45deg, #241f4a 25%, transparent 25%),
+                          linear-gradient(-45deg, #241f4a 25%, transparent 25%),
+                          linear-gradient(45deg, transparent 75%, #241f4a 75%),
+                          linear-gradient(-45deg, transparent 75%, #241f4a 75%);
+        background-size: 14px 14px; background-position: 0 0, 0 7px, 7px -7px, -7px 0; }
+  figcaption { font-size: 13px; padding-top: 6px; display: flex; gap: 8px; align-items: baseline; }
+  figcaption b { font-size: 15px; margin-right: auto; }
+  figcaption a { font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Fluffy Drop - материалы для художника</h1>
+<p>Рисованных файлов у игры нет: всё, что видно на экране, рисует код на канвасе
+каждый кадр. Поэтому здесь не «исходники», а рендеры из самой игры - по одной
+вещи за раз, крупно, на прозрачном фоне. Любой размер пересобирается одной
+цифрой, ничего не мылится.</p>
+
+<p class="warn"><b>На шарике сверху сидит буква.</b> Это механика, а не
+украшение: игрок читает по шарикам слово уровня. Любая новая форма шарика должна
+пережить букву поверх себя и остаться читаемой.</p>
+
+<p class="warn"><b>Двенадцать элементов в игре сейчас чужие</b> - сундук, монета,
+замок, три бустера и четыре иконки предметов стоят вырезками из записи
+оригинальной игры как заглушка. Их здесь нет: вместо них снят наш собственный
+вариант той же вещи. Рисовать их всё равно заново.</p>
+
+<div class="big">
+  <a href="elements/index.html">Элементы игры<span>86 PNG: фоны, лунки, шахты, шарики, интерфейс</span></a>
+  <a href="letters.psd" download>Все буквы одним листом<span>PSD, 2400x1440, 58 слоёв - 5.0 МБ</span></a>
+  <a href="letters-all.png" download>Тот же лист картинкой<span>PNG с альфой - 1.9 МБ</span></a>
+  <a href="README.md">Как это пересобрать<span>и чем всё проверено</span></a>
+</div>
+
+<h2>Буквы по одной</h2>
+<p>Холст 1080x1080. PSD - та же буква в пять слоёв: обводка, тело, блики, глаза,
+рот. Цвет здесь только для примера, любую букву можно пересобрать в любом из
+десяти цветов игры.</p>
+
+<h2>Латиница</h2>
+<div class="grid">
+    <figure>
+      <img src="letters/png/lat-A.png" alt="A" loading="lazy">
+      <figcaption><b>A</b>
+        <a href="letters/png/lat-A.png" download>png</a>
+        <a href="letters/psd/lat-A.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-B.png" alt="B" loading="lazy">
+      <figcaption><b>B</b>
+        <a href="letters/png/lat-B.png" download>png</a>
+        <a href="letters/psd/lat-B.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-C.png" alt="C" loading="lazy">
+      <figcaption><b>C</b>
+        <a href="letters/png/lat-C.png" download>png</a>
+        <a href="letters/psd/lat-C.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-D.png" alt="D" loading="lazy">
+      <figcaption><b>D</b>
+        <a href="letters/png/lat-D.png" download>png</a>
+        <a href="letters/psd/lat-D.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-E.png" alt="E" loading="lazy">
+      <figcaption><b>E</b>
+        <a href="letters/png/lat-E.png" download>png</a>
+        <a href="letters/psd/lat-E.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-F.png" alt="F" loading="lazy">
+      <figcaption><b>F</b>
+        <a href="letters/png/lat-F.png" download>png</a>
+        <a href="letters/psd/lat-F.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-G.png" alt="G" loading="lazy">
+      <figcaption><b>G</b>
+        <a href="letters/png/lat-G.png" download>png</a>
+        <a href="letters/psd/lat-G.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-H.png" alt="H" loading="lazy">
+      <figcaption><b>H</b>
+        <a href="letters/png/lat-H.png" download>png</a>
+        <a href="letters/psd/lat-H.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-I.png" alt="I" loading="lazy">
+      <figcaption><b>I</b>
+        <a href="letters/png/lat-I.png" download>png</a>
+        <a href="letters/psd/lat-I.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-J.png" alt="J" loading="lazy">
+      <figcaption><b>J</b>
+        <a href="letters/png/lat-J.png" download>png</a>
+        <a href="letters/psd/lat-J.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-K.png" alt="K" loading="lazy">
+      <figcaption><b>K</b>
+        <a href="letters/png/lat-K.png" download>png</a>
+        <a href="letters/psd/lat-K.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-L.png" alt="L" loading="lazy">
+      <figcaption><b>L</b>
+        <a href="letters/png/lat-L.png" download>png</a>
+        <a href="letters/psd/lat-L.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-M.png" alt="M" loading="lazy">
+      <figcaption><b>M</b>
+        <a href="letters/png/lat-M.png" download>png</a>
+        <a href="letters/psd/lat-M.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-N.png" alt="N" loading="lazy">
+      <figcaption><b>N</b>
+        <a href="letters/png/lat-N.png" download>png</a>
+        <a href="letters/psd/lat-N.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-O.png" alt="O" loading="lazy">
+      <figcaption><b>O</b>
+        <a href="letters/png/lat-O.png" download>png</a>
+        <a href="letters/psd/lat-O.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-P.png" alt="P" loading="lazy">
+      <figcaption><b>P</b>
+        <a href="letters/png/lat-P.png" download>png</a>
+        <a href="letters/psd/lat-P.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-Q.png" alt="Q" loading="lazy">
+      <figcaption><b>Q</b>
+        <a href="letters/png/lat-Q.png" download>png</a>
+        <a href="letters/psd/lat-Q.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-R.png" alt="R" loading="lazy">
+      <figcaption><b>R</b>
+        <a href="letters/png/lat-R.png" download>png</a>
+        <a href="letters/psd/lat-R.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-S.png" alt="S" loading="lazy">
+      <figcaption><b>S</b>
+        <a href="letters/png/lat-S.png" download>png</a>
+        <a href="letters/psd/lat-S.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-T.png" alt="T" loading="lazy">
+      <figcaption><b>T</b>
+        <a href="letters/png/lat-T.png" download>png</a>
+        <a href="letters/psd/lat-T.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-U.png" alt="U" loading="lazy">
+      <figcaption><b>U</b>
+        <a href="letters/png/lat-U.png" download>png</a>
+        <a href="letters/psd/lat-U.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-V.png" alt="V" loading="lazy">
+      <figcaption><b>V</b>
+        <a href="letters/png/lat-V.png" download>png</a>
+        <a href="letters/psd/lat-V.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-W.png" alt="W" loading="lazy">
+      <figcaption><b>W</b>
+        <a href="letters/png/lat-W.png" download>png</a>
+        <a href="letters/psd/lat-W.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-X.png" alt="X" loading="lazy">
+      <figcaption><b>X</b>
+        <a href="letters/png/lat-X.png" download>png</a>
+        <a href="letters/psd/lat-X.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-Y.png" alt="Y" loading="lazy">
+      <figcaption><b>Y</b>
+        <a href="letters/png/lat-Y.png" download>png</a>
+        <a href="letters/psd/lat-Y.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/lat-Z.png" alt="Z" loading="lazy">
+      <figcaption><b>Z</b>
+        <a href="letters/png/lat-Z.png" download>png</a>
+        <a href="letters/psd/lat-Z.psd" download>psd</a></figcaption>
+    </figure>
+</div>
+
+<h2>Кириллица</h2>
+<div class="grid">
+    <figure>
+      <img src="letters/png/cyr-А.png" alt="А" loading="lazy">
+      <figcaption><b>А</b>
+        <a href="letters/png/cyr-А.png" download>png</a>
+        <a href="letters/psd/cyr-А.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Б.png" alt="Б" loading="lazy">
+      <figcaption><b>Б</b>
+        <a href="letters/png/cyr-Б.png" download>png</a>
+        <a href="letters/psd/cyr-Б.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-В.png" alt="В" loading="lazy">
+      <figcaption><b>В</b>
+        <a href="letters/png/cyr-В.png" download>png</a>
+        <a href="letters/psd/cyr-В.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Г.png" alt="Г" loading="lazy">
+      <figcaption><b>Г</b>
+        <a href="letters/png/cyr-Г.png" download>png</a>
+        <a href="letters/psd/cyr-Г.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Д.png" alt="Д" loading="lazy">
+      <figcaption><b>Д</b>
+        <a href="letters/png/cyr-Д.png" download>png</a>
+        <a href="letters/psd/cyr-Д.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Е.png" alt="Е" loading="lazy">
+      <figcaption><b>Е</b>
+        <a href="letters/png/cyr-Е.png" download>png</a>
+        <a href="letters/psd/cyr-Е.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Ж.png" alt="Ж" loading="lazy">
+      <figcaption><b>Ж</b>
+        <a href="letters/png/cyr-Ж.png" download>png</a>
+        <a href="letters/psd/cyr-Ж.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-З.png" alt="З" loading="lazy">
+      <figcaption><b>З</b>
+        <a href="letters/png/cyr-З.png" download>png</a>
+        <a href="letters/psd/cyr-З.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-И.png" alt="И" loading="lazy">
+      <figcaption><b>И</b>
+        <a href="letters/png/cyr-И.png" download>png</a>
+        <a href="letters/psd/cyr-И.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Й.png" alt="Й" loading="lazy">
+      <figcaption><b>Й</b>
+        <a href="letters/png/cyr-Й.png" download>png</a>
+        <a href="letters/psd/cyr-Й.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-К.png" alt="К" loading="lazy">
+      <figcaption><b>К</b>
+        <a href="letters/png/cyr-К.png" download>png</a>
+        <a href="letters/psd/cyr-К.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Л.png" alt="Л" loading="lazy">
+      <figcaption><b>Л</b>
+        <a href="letters/png/cyr-Л.png" download>png</a>
+        <a href="letters/psd/cyr-Л.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-М.png" alt="М" loading="lazy">
+      <figcaption><b>М</b>
+        <a href="letters/png/cyr-М.png" download>png</a>
+        <a href="letters/psd/cyr-М.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Н.png" alt="Н" loading="lazy">
+      <figcaption><b>Н</b>
+        <a href="letters/png/cyr-Н.png" download>png</a>
+        <a href="letters/psd/cyr-Н.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-О.png" alt="О" loading="lazy">
+      <figcaption><b>О</b>
+        <a href="letters/png/cyr-О.png" download>png</a>
+        <a href="letters/psd/cyr-О.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-П.png" alt="П" loading="lazy">
+      <figcaption><b>П</b>
+        <a href="letters/png/cyr-П.png" download>png</a>
+        <a href="letters/psd/cyr-П.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Р.png" alt="Р" loading="lazy">
+      <figcaption><b>Р</b>
+        <a href="letters/png/cyr-Р.png" download>png</a>
+        <a href="letters/psd/cyr-Р.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-С.png" alt="С" loading="lazy">
+      <figcaption><b>С</b>
+        <a href="letters/png/cyr-С.png" download>png</a>
+        <a href="letters/psd/cyr-С.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Т.png" alt="Т" loading="lazy">
+      <figcaption><b>Т</b>
+        <a href="letters/png/cyr-Т.png" download>png</a>
+        <a href="letters/psd/cyr-Т.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-У.png" alt="У" loading="lazy">
+      <figcaption><b>У</b>
+        <a href="letters/png/cyr-У.png" download>png</a>
+        <a href="letters/psd/cyr-У.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Ф.png" alt="Ф" loading="lazy">
+      <figcaption><b>Ф</b>
+        <a href="letters/png/cyr-Ф.png" download>png</a>
+        <a href="letters/psd/cyr-Ф.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Х.png" alt="Х" loading="lazy">
+      <figcaption><b>Х</b>
+        <a href="letters/png/cyr-Х.png" download>png</a>
+        <a href="letters/psd/cyr-Х.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Ц.png" alt="Ц" loading="lazy">
+      <figcaption><b>Ц</b>
+        <a href="letters/png/cyr-Ц.png" download>png</a>
+        <a href="letters/psd/cyr-Ц.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Ч.png" alt="Ч" loading="lazy">
+      <figcaption><b>Ч</b>
+        <a href="letters/png/cyr-Ч.png" download>png</a>
+        <a href="letters/psd/cyr-Ч.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Ш.png" alt="Ш" loading="lazy">
+      <figcaption><b>Ш</b>
+        <a href="letters/png/cyr-Ш.png" download>png</a>
+        <a href="letters/psd/cyr-Ш.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Щ.png" alt="Щ" loading="lazy">
+      <figcaption><b>Щ</b>
+        <a href="letters/png/cyr-Щ.png" download>png</a>
+        <a href="letters/psd/cyr-Щ.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Ъ.png" alt="Ъ" loading="lazy">
+      <figcaption><b>Ъ</b>
+        <a href="letters/png/cyr-Ъ.png" download>png</a>
+        <a href="letters/psd/cyr-Ъ.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Ы.png" alt="Ы" loading="lazy">
+      <figcaption><b>Ы</b>
+        <a href="letters/png/cyr-Ы.png" download>png</a>
+        <a href="letters/psd/cyr-Ы.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Ь.png" alt="Ь" loading="lazy">
+      <figcaption><b>Ь</b>
+        <a href="letters/png/cyr-Ь.png" download>png</a>
+        <a href="letters/psd/cyr-Ь.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Э.png" alt="Э" loading="lazy">
+      <figcaption><b>Э</b>
+        <a href="letters/png/cyr-Э.png" download>png</a>
+        <a href="letters/psd/cyr-Э.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Ю.png" alt="Ю" loading="lazy">
+      <figcaption><b>Ю</b>
+        <a href="letters/png/cyr-Ю.png" download>png</a>
+        <a href="letters/psd/cyr-Ю.psd" download>psd</a></figcaption>
+    </figure>
+    <figure>
+      <img src="letters/png/cyr-Я.png" alt="Я" loading="lazy">
+      <figcaption><b>Я</b>
+        <a href="letters/png/cyr-Я.png" download>png</a>
+        <a href="letters/psd/cyr-Я.psd" download>psd</a></figcaption>
+    </figure>
+</div>
+
+</div>
+</body>
+</html>
