@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluffy Drop - экраны игры</title>
+<style>
+  body { margin: 0; padding: 32px 24px 80px; background: #14112e; color: #e9e7ff;
+         font: 16px/1.55 system-ui, "Segoe UI", sans-serif; }
+  h1 { font-size: 28px; margin: 0 0 8px; }
+  p { color: #a49ed6; max-width: 72ch; margin: 0 0 12px; }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); margin-top: 20px; }
+  figure { margin: 0; background: #1e1a44; border: 1px solid #322c66; border-radius: 12px; padding: 10px; }
+  img { width: 100%; height: auto; display: block; border-radius: 8px; }
+  figcaption { font-size: 13.5px; padding-top: 8px; }
+  figcaption span { display: block; color: #7b74ad; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>Fluffy Drop - экраны игры</h1>
+<p>Композиция целиком, 720x1280 - настоящий размер холста игры. Здесь видна та
+мебель, которой нет отдельными файлами: плита заголовка, кнопка настроек, поднос
+бустеров со своей лужей света, палец подсказки, значки в тумблерах. Всё это
+рисуется внутри сцены, а не отдельной функцией, поэтому вырезать его на
+прозрачный фон нечем - зато в контексте оно и нужнее.</p>
+<div class="grid">
+    <figure><img src="board-tutorial.png" alt="Доска: первый уровень" loading="lazy">
+      <figcaption>Доска: первый уровень<span>палец подсказки, все три слота бустеров закрыты</span></figcaption></figure>
+    <figure><img src="board-mid.png" alt="Доска: лунка со стрелкой" loading="lazy">
+      <figcaption>Доска: лунка со стрелкой<span>цены на бустерах, шахта</span></figcaption></figure>
+    <figure><img src="board-crates.png" alt="Доска: ящики" loading="lazy">
+      <figcaption>Доска: ящики<span></span></figcaption></figure>
+    <figure><img src="board-star.png" alt="Доска: звёздные лунки" loading="lazy">
+      <figcaption>Доска: звёздные лунки<span></span></figcaption></figure>
+    <figure><img src="popup-unlock.png" alt="Попап новой механики" loading="lazy">
+      <figcaption>Попап новой механики<span>плашка с лучами, заголовок на язычке, зелёная кнопка, крестик</span></figcaption></figure>
+    <figure><img src="popup-settings.png" alt="Настройки" loading="lazy">
+      <figcaption>Настройки<span>тумблеры со своими значками, кнопка «Заново», строки списка</span></figcaption></figure>
+    <figure><img src="booster-armed.png" alt="Бустер взведён" loading="lazy">
+      <figcaption>Бустер взведён<span>баннер вместо заголовка, доска притушена, слот подсвечен</span></figcaption></figure>
+    <figure><img src="win.png" alt="Экран победы" loading="lazy">
+      <figcaption>Экран победы<span>логотип, монеты, две полосы, слово уровня</span></figcaption></figure>
+    <figure><img src="new-item.png" alt="Новый предмет" loading="lazy">
+      <figcaption>Новый предмет<span></span></figcaption></figure>
+</div>
+</body>
+</html>
