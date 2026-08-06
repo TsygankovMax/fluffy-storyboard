@@ -1,0 +1,404 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Буквоплюх - что выбрать, 6 августа</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #14112e;
+    --panel: #1e1a44;
+    --panel-2: #241f52;
+    --line: #322c66;
+    --ink: #e9e7ff;
+    --dim: #a49ed6;
+    --gold: #ffcf4a;
+    --now: #767c8a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 34px 22px 80px;
+    background: radial-gradient(120% 70% at 50% 0%, #241d52 0%, var(--bg) 60%);
+    color: var(--ink);
+    font: 16px/1.55 system-ui, "Segoe UI", sans-serif;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+  h1 { font-size: 29px; margin: 0; letter-spacing: -0.2px; text-wrap: balance; }
+  h2 {
+    font-size: 21px; margin: 40px 0 0; padding-top: 26px;
+    border-top: 1px solid var(--line);
+  }
+  h3 {
+    font-size: 12.5px; margin: 22px 0 0; color: var(--dim);
+    text-transform: uppercase; letter-spacing: 1px; font-weight: 700;
+  }
+  p { margin: 0; color: var(--dim); font-size: 15px; max-width: 68ch; }
+  p b { color: var(--ink); font-weight: 700; }
+  .quote {
+    margin: 0; padding: 12px 16px; border-left: 3px solid var(--gold);
+    background: #00000033; border-radius: 0 9px 9px 0;
+    color: var(--ink); font-size: 15px; line-height: 1.6;
+  }
+  .ask {
+    display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin: 6px 0 4px;
+  }
+  .ask a {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 14px; font-size: 13.5px; color: var(--dim); line-height: 1.45;
+  }
+  .ask a:hover, .ask a:focus-visible { border-color: var(--gold); }
+  .ask a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .ask b { display: block; color: var(--ink); font-size: 14.5px; margin-bottom: 4px; font-weight: 700; }
+  .ask .need { color: var(--gold); font-weight: 700; }
+  .row {
+    display: grid; gap: 14px; margin: 4px 0 0;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .row.words { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  .row.two { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 780px; }
+  .row.four { grid-template-columns: repeat(auto-fit, minmax(146px, 1fr)); }
+  .row.boards { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .shot {
+    margin: 0; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 12px; padding: 9px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .shot img { width: 100%; height: auto; display: block; border-radius: 7px; }
+  figcaption { font-size: 13px; color: var(--dim); line-height: 1.35; }
+  .tag {
+    display: inline-block; background: var(--gold); color: #14112e;
+    font-weight: 800; font-size: 11px; letter-spacing: 0.6px;
+    padding: 2px 7px; border-radius: 999px; margin-right: 5px; vertical-align: 1px;
+  }
+  .tag.now { background: var(--now); color: #f2f3f7; }
+  .cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .card {
+    background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 14px; font-size: 13.5px; color: var(--dim); line-height: 1.45;
+  }
+  .card b { display: block; color: var(--ink); font-size: 14.5px; margin-bottom: 4px; font-weight: 700; }
+  .rules { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .rule {
+    background: #00000033; border: 1px solid var(--line); border-left: 3px solid var(--gold);
+    border-radius: 0 12px 12px 0; padding: 12px 14px; font-size: 13.5px;
+    color: var(--dim); line-height: 1.45;
+  }
+  .rule b { display: block; color: var(--ink); font-size: 14.5px; margin-bottom: 4px; font-weight: 700; }
+  .ctx { display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-start; }
+  .ctx figure { margin: 0; }
+  .ctx img { border-radius: 9px; border: 1px solid var(--line); display: block; max-width: 100%; }
+  .ctx figcaption { text-align: center; padding-top: 5px; font-size: 12.5px; color: var(--dim); }
+  code {
+    background: #00000055; padding: 1px 6px; border-radius: 5px;
+    font: 500 13px/1.4 ui-monospace, "Cascadia Mono", Consolas, monospace; color: #cfd2ff;
+  }
+  footer { margin-top: 46px; padding-top: 22px; border-top: 1px solid var(--line);
+           color: var(--dim); font-size: 14px; }
+  @media (max-width: 560px) { body { padding: 24px 14px 60px; } h1 { font-size: 24px; } }
+</style>
+
+<div class="wrap">
+  <h1>Три правки от 6 августа</h1>
+  <p>Всё нарисовано в билде и снято с живого канваса, ничего не дорисовано. Выбрать надо <b>два номера</b>; иконку лифта надо просто посмотреть.</p>
+
+  <div class="ask">
+    <a href="#icon"><b>1. Иконка лифта</b><span class="need">сделано</span> - вариантов нет, посмотреть и сказать «ок»</a>
+    <a href="#word"><b>2. Слово на экране победы</b><span class="need">нужен номер: 1, 2 или 3</span> - насколько крупное</a>
+    <a href="#queue"><b>3. Очередь в шахте</b><span class="need">нужен номер: 1, 2, 3 или 4</span> - насколько крупные точки</a>
+  </div>
+
+  <h2 id="icon">1. Иконка лифта - сделано</h2>
+  <blockquote class="quote">
+    «Вот тут ещё должны быть буквы и наш лифт сейчас это из старой игры картинка»<br>
+    «В лифтах кружки должны быть, сейчас не кружки»<br>
+    «Тут всё оставляем как есть, только нужно не кружки а буковки»
+  </blockquote>
+  <p>Плашка, колодец, оба зубца и бейдж перемерены по самой вырезке (186x176 px, <code>tools/px.mjs</code>) и нарисованы кодом - размер и место не сдвинулись ни на пиксель. Поменялось только то, что стоит на плашке: спереди буква целиком, за ней вторая - без глаз и рта, как на оригинале задний кот стоит безликой массой, и как на доске очередь не носит букв.</p>
+
+
+  <h3>Попап «Отлично», ур. 7</h3>
+  <div class="row two">
+      <figure class="shot">
+        <img src="icon-popup-old.jpg" alt="было" loading="lazy">
+        <figcaption><span class="tag now">было</span> вырезка из оригинала</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="icon-popup-new.jpg" alt="стало" loading="lazy">
+        <figcaption><span class="tag">стало</span> та же плашка, буквы вместо шариков</figcaption>
+      </figure>
+  </div>
+  <h3>Экран «Новый предмет», после ур. 6</h3>
+  <div class="row two">
+      <figure class="shot">
+        <img src="icon-ni-old.jpg" alt="было" loading="lazy">
+        <figcaption><span class="tag now">было</span> вырезка из оригинала</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="icon-ni-new.jpg" alt="стало" loading="lazy">
+        <figcaption><span class="tag">стало</span> та же плашка, буквы вместо шариков</figcaption>
+      </figure>
+  </div>
+  <h3>Полоска «Предмет» - 65 px, самый мелкий случай</h3>
+  <div class="row two">
+      <figure class="shot">
+        <img src="icon-bar-old.jpg" alt="было" loading="lazy">
+        <figcaption><span class="tag now">было</span> вырезка из оригинала</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="icon-bar-new.jpg" alt="стало" loading="lazy">
+        <figcaption><span class="tag">стало</span> та же плашка, буквы вместо шариков</figcaption>
+      </figure>
+  </div>
+
+  <div class="cards">
+    <div class="card"><b>Картинки старой игры в сборке больше нет</b>Это была последняя. Вырезка удалена из бандла целиком: 331.6 → 313.7 кБ, в гзипе 126.7 → 113.5.</div>
+    <div class="card"><b>Три экрана меняются разом</b>Полоска «Предмет» на уровнях 1-6, экран «Новый предмет» после шестого и попап «Отлично» на седьмом - это одна и та же функция.</div>
+  </div>
+
+  <h2 id="word">2. Слово и фраза на экране победы</h2>
+  <blockquote class="quote">
+    «А давай ещё на этом экране будем показывать собранное слово и фразу. Далее она так и продолжает висеть вместе с лвл комплит. Больше экранного времени ей дадим. И можно сделать крупнее. А анимацию больших букв ОК не надо менять просто они чуть ниже будут и всё»
+  </blockquote>
+  <p>Слово теперь падает сразу за логотипом и стоит до конца экрана - четыре с лишним секунды вместо 1.3. Анимация пары ОК не тронута: тот же прыжок, та же пауза, то же падение, просто ниже. Заодно у букв слова <b>открылись глаза</b>: закрытые читаются как «уснули», когда строка висит так долго.</p>
+
+  <h3>1.3 с - фейерверк, пара ОК в кадре</h3>
+  <div class="row words">
+      <figure class="shot">
+        <img src="word-0-a.jpg" alt="Как в билде" loading="lazy">
+        <figcaption><span class="tag now">сейчас</span> Как в билде</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="word-1-a.jpg" alt="Просто раньше" loading="lazy">
+        <figcaption><span class="tag">1</span> Просто раньше</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="word-2-a.jpg" alt="Раньше и крупнее" loading="lazy">
+        <figcaption><span class="tag">2</span> Раньше и крупнее</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="word-3-a.jpg" alt="Раньше и заметно крупнее" loading="lazy">
+        <figcaption><span class="tag">3</span> Раньше и заметно крупнее</figcaption>
+      </figure>
+  </div>
+
+  <h3>3.6 с - выезжают монетка и полоски</h3>
+  <div class="row words">
+      <figure class="shot">
+        <img src="word-0-b.jpg" alt="Как в билде" loading="lazy">
+        <figcaption><span class="tag now">сейчас</span> Как в билде</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="word-1-b.jpg" alt="Просто раньше" loading="lazy">
+        <figcaption><span class="tag">1</span> Просто раньше</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="word-2-b.jpg" alt="Раньше и крупнее" loading="lazy">
+        <figcaption><span class="tag">2</span> Раньше и крупнее</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="word-3-b.jpg" alt="Раньше и заметно крупнее" loading="lazy">
+        <figcaption><span class="tag">3</span> Раньше и заметно крупнее</figcaption>
+      </figure>
+  </div>
+
+  <h3>7.2 с - экран собран целиком</h3>
+  <div class="row words">
+      <figure class="shot">
+        <img src="word-0-c.jpg" alt="Как в билде" loading="lazy">
+        <figcaption><span class="tag now">сейчас</span> Как в билде</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="word-1-c.jpg" alt="Просто раньше" loading="lazy">
+        <figcaption><span class="tag">1</span> Просто раньше</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="word-2-c.jpg" alt="Раньше и крупнее" loading="lazy">
+        <figcaption><span class="tag">2</span> Раньше и крупнее</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="word-3-c.jpg" alt="Раньше и заметно крупнее" loading="lazy">
+        <figcaption><span class="tag">3</span> Раньше и заметно крупнее</figcaption>
+      </figure>
+  </div>
+
+  <div class="cards">
+    <div class="card"><b>сейчас - Как в билде</b>Слово приходит на 5.2 с, после обеих полосок. До него верх экрана пустой, и вся сцена длится 6.5 с.</div>
+    <div class="card"><b>1 - Просто раньше</b>Слово падает на 0.95 с, сразу за логотипом, и висит до конца. Размер и место прежние, пара не двигается.</div>
+    <div class="card"><b>2 - Раньше и крупнее</b>Буквы с 27 до 34, фраза с 21 до 26. Пара ОК опускается на 42 px.</div>
+    <div class="card"><b>3 - Раньше и заметно крупнее</b>Буквы 42, фраза 31. Пара ОК опускается на 74 px. Это верхняя граница - дальше слово упрётся в монетку.</div>
+  </div>
+
+  <p style="margin-top:14px">Экран при этом стал <b>короче</b>, а не длиннее: кнопка «Уровень N» возвращается на измеренные 5.2 с, потому что слову больше не нужно ждать своей очереди в конце.</p>
+
+  <h2 id="queue">3. Очередь в шахте - точками</h2>
+  <blockquote class="quote">
+    «Вот как над Е точки на скрине»<br>
+    «Можно покрупнее эти точки»<br>
+    «И за оградку чуть выходить могут»<br>
+    «А если у нижних букв то снизу лифта, а если у боковых бук то сбоку лифта»<br>
+    «Аккуратно чтобы было»
+  </blockquote>
+  <p>Вариант <b>C</b> с раскадровки, перерисованный под эти заметки. Три из пяти - это правила, а не выбор, поэтому они уже сделаны и одинаковы во всех вариантах.</p>
+
+  <div class="rules">
+    <div class="rule"><b>Со стороны, обратной доске</b>У верхней шахты точки над буквой, у нижней под ней, у боковой - сбоку. Ряд всегда идёт поперёк шахты и читается по очереди.</div>
+    <div class="rule"><b>Не под бейджем</b>Кружок со счётчиком - половина клетки шириной и висит как раз на дальнем углу у трёх шахт из четырёх (это место оригинала, снято с уровня 26). Ряд начинается от дальнего от него угла и обрывается, не доходя: лучше показать две точки, чем четыре, из которых полторы закрыты.</div>
+    <div class="rule"><b>Не больше четырёх</b>В очереди бывает и десять - на 81 уровне. Точки говорят, что придёт следующим, а сколько всего - говорит бейдж.</div>
+  </div>
+
+  <h3>Насколько крупные - уровень 8, верхняя шахта</h3>
+  <p>Та самая шахта, на которой всё это и было сказано. Очередь <code>uuou</code>: передняя фиолетовая, за ней фиолетовая, оранжевая и снова фиолетовая. Случай нарочно неудобный - <b>очередь того же цвета, что и буква</b>, а такое в игре сплошь и рядом.</p>
+  <div class="row">
+      <figure class="shot">
+        <img src="zoom8-0.jpg" alt="Как в билде" loading="lazy">
+        <figcaption><span class="tag now">сейчас</span> Как в билде</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="zoom8-1.jpg" alt="Как в раскадровке" loading="lazy">
+        <figcaption><span class="tag">1</span> Как в раскадровке</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="zoom8-2.jpg" alt="На треть крупнее" loading="lazy">
+        <figcaption><span class="tag">2</span> На треть крупнее</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="zoom8-3.jpg" alt="На две трети крупнее" loading="lazy">
+        <figcaption><span class="tag">3</span> На две трети крупнее</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="zoom8-4.jpg" alt="На тёмной планке" loading="lazy">
+        <figcaption><span class="tag">4</span> На тёмной планке</figcaption>
+      </figure>
+  </div>
+
+  <div class="cards">
+    <div class="card"><b>сейчас - Как в билде</b>Вторая буква стоит за первой, тусклее и мельче, и её режет край шахты. Это и есть «мешанина из буковок».</div>
+    <div class="card"><b>1 - Как в раскадровке</b>Ровно тот вариант C, что был на странице: точки 29 px при клетке 228, шаг 44, целиком внутри ограды.</div>
+    <div class="card"><b>2 - На треть крупнее</b>Точка стала больше и села верхом на ограду - её край выходит наружу. Буква сдвинулась к устью, чтобы освободить место.</div>
+    <div class="card"><b>3 - На две трети крупнее</b>Тот же приём до упора: снаружи ограды оказывается большая часть точки. Дальше расти уже некуда - четыре штуки перестают помещаться поперёк клетки.</div>
+    <div class="card"><b>4 - На тёмной планке</b>Точки лежат на тёмной планке поперёк головы шахты - как зубчатая кромка лежит поперёк её устья. Единственный вариант, где точку нельзя принять за часть буквы, какими бы ни были два цвета.</div>
+  </div>
+
+  <p style="margin-top:14px">Почему «крупнее» и «за оградку» - это один вопрос, а не два: шахта ровно в одну клетку, а буква в ней занимает 0.72 клетки. Внутрь точке расти некуда, поэтому чем она крупнее, тем дальше выходит наружу.</p>
+
+  <h3>Все четыре стороны - уровень 26</h3>
+  <p>Единственный уровень, где шахты стоят со всех четырёх сторон сразу. Он же был снят с оригинала, чтобы проверить, где там висит бейдж.</p>
+
+  <h3>Как в билде</h3>
+  <div class="row four">
+      <figure class="shot">
+        <img src="side26-0-top.jpg" alt="Сверху" loading="lazy">
+        <figcaption><span class="tag now">сейчас</span> Сверху</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-0-bottom.jpg" alt="Снизу" loading="lazy">
+        <figcaption><span class="tag now">сейчас</span> Снизу</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-0-left.jpg" alt="Слева" loading="lazy">
+        <figcaption><span class="tag now">сейчас</span> Слева</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-0-right.jpg" alt="Справа" loading="lazy">
+        <figcaption><span class="tag now">сейчас</span> Справа</figcaption>
+      </figure>
+  </div>
+
+  <h3>Вариант 2 - на треть крупнее</h3>
+  <div class="row four">
+      <figure class="shot">
+        <img src="side26-2-top.jpg" alt="Сверху" loading="lazy">
+        <figcaption><span class="tag">2</span> Сверху</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-2-bottom.jpg" alt="Снизу" loading="lazy">
+        <figcaption><span class="tag">2</span> Снизу</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-2-left.jpg" alt="Слева" loading="lazy">
+        <figcaption><span class="tag">2</span> Слева</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-2-right.jpg" alt="Справа" loading="lazy">
+        <figcaption><span class="tag">2</span> Справа</figcaption>
+      </figure>
+  </div>
+
+  <h3>Вариант 3 - на две трети крупнее</h3>
+  <div class="row four">
+      <figure class="shot">
+        <img src="side26-3-top.jpg" alt="Сверху" loading="lazy">
+        <figcaption><span class="tag">3</span> Сверху</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-3-bottom.jpg" alt="Снизу" loading="lazy">
+        <figcaption><span class="tag">3</span> Снизу</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-3-left.jpg" alt="Слева" loading="lazy">
+        <figcaption><span class="tag">3</span> Слева</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-3-right.jpg" alt="Справа" loading="lazy">
+        <figcaption><span class="tag">3</span> Справа</figcaption>
+      </figure>
+  </div>
+
+  <h3>Вариант 4 - на тёмной планке</h3>
+  <div class="row four">
+      <figure class="shot">
+        <img src="side26-4-top.jpg" alt="Сверху" loading="lazy">
+        <figcaption><span class="tag">4</span> Сверху</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-4-bottom.jpg" alt="Снизу" loading="lazy">
+        <figcaption><span class="tag">4</span> Снизу</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-4-left.jpg" alt="Слева" loading="lazy">
+        <figcaption><span class="tag">4</span> Слева</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="side26-4-right.jpg" alt="Справа" loading="lazy">
+        <figcaption><span class="tag">4</span> Справа</figcaption>
+      </figure>
+  </div>
+
+  <h3>На доске целиком - уровень 8</h3>
+  <p>Четыре шахты, пять букв в очередях. На таком масштабе и видно, читается точка или теряется.</p>
+  <div class="row boards">
+      <figure class="shot">
+        <img src="board8-0.jpg" alt="Как в билде" loading="lazy">
+        <figcaption><span class="tag now">сейчас</span> Как в билде</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="board8-2.jpg" alt="На треть крупнее" loading="lazy">
+        <figcaption><span class="tag">2</span> На треть крупнее</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="board8-3.jpg" alt="На две трети крупнее" loading="lazy">
+        <figcaption><span class="tag">3</span> На две трети крупнее</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="board8-4.jpg" alt="На тёмной планке" loading="lazy">
+        <figcaption><span class="tag">4</span> На тёмной планке</figcaption>
+      </figure>
+  </div>
+
+  <h3>Крайний случай - уровень 81</h3>
+  <p>Клетка самая мелкая в игре, а в нижней шахте <b>десять</b> букв. Бейдж съедает половину дальнего края, поэтому точек остаётся две - и это правильный ответ, а не потеря.</p>
+  <div class="ctx">
+    <figure><img src="zoom81-3.jpg" width="300" alt="уровень 81, вариант 3" loading="lazy"><figcaption>Вариант 3, очередь из десяти</figcaption></figure>
+    <div class="card" style="flex:1 1 260px">
+      <b>Что здесь видно</b>
+      Точки мельче, чем на 8 уровне, потому что клетка мельче - они заданы в долях клетки, как и всё остальное в шахте. Бейдж «10» на месте и держит счёт.
+    </div>
+  </div>
+
+  <footer>
+    Посмотреть живьём: в консоли игры задать <code>window.__word = 1..3</code> и
+    <code>window.__shaft = 0..4</code>. Ссылки: <code>?level=7&amp;intro=1</code> - попап,
+    <code>?level=6&amp;set=0&amp;win=1</code> - «Новый предмет», <code>?level=5&amp;win=1</code> -
+    экран победы, <code>?level=8</code> / <code>?level=26</code> / <code>?level=81</code> - шахты.
+  </footer>
+</div>
